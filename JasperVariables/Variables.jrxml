@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Variables" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7b1db2ef-bb17-4977-b324-4d7ba3c352bb">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adaptador"/>
+	<subDataset name="Dataset1" uuid="5e3a49aa-e076-4cc6-a2b5-6901370d4456">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString language="XLS">
+		<![CDATA[]]>
+	</queryString>
+	<field name="Nombre y Apellidos" class="java.lang.String"/>
+	<field name="Especialidad" class="java.lang.String"/>
+	<field name="Genero" class="java.lang.String"/>
+	<variable name="Variable_Hombres" class="java.lang.Integer" resetType="Master" calculation="Sum">
+		<variableDescription><![CDATA[Numero de hombres]]></variableDescription>
+		<variableExpression><![CDATA[($F{Genero}.equals( "Hombre" ) ? 1:0) ]]></variableExpression>
+	</variable>
+	<variable name="Variable_Mujeres" class="java.lang.Integer" resetType="Master" calculation="Sum">
+		<variableDescription><![CDATA[Numero de mujeres]]></variableDescription>
+		<variableExpression><![CDATA[($F{Genero}.equals( "Mujer" ) ? 1:0) ]]></variableExpression>
+	</variable>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="10" y="0" width="180" height="110" uuid="2710b8c5-54d6-47d9-a85d-1aa7ee44cb3c"/>
+				<imageExpression><![CDATA["/imagen/Captura de pantalla_20230216_184358.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="200" y="10" width="334" height="40" uuid="225e8e28-5aee-4304-8ced-01e20de21643"/>
+				<textElement>
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Atletas Espanoles JJ.OO Tokio 2020]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="110" width="100" height="20" uuid="efa21c56-9656-476d-816d-2a457816f8a1"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Nombre y Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="100" width="80" height="26" uuid="7b4bb794-b13c-4f5d-88c7-999ff790c3c6"/>
+				<text><![CDATA[Especialidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="102" width="40" height="24" uuid="ce66940b-33d4-4c9c-a776-7b9edf624c2c"/>
+				<text><![CDATA[Genero]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-23" y="126" width="600" height="4" uuid="5d265aca-a868-46e7-926b-3bbe27dc5c78"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="60" y="40" width="110" height="30" uuid="7424933d-ee9f-456c-958e-8ef3e2735fa9"/>
+				<textFieldExpression><![CDATA[$F{Nombre y Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="40" width="90" height="30" uuid="18e088c5-f7b5-4eda-ba8a-0fa0b67ece79"/>
+				<textFieldExpression><![CDATA[$F{Especialidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="40" width="60" height="30" uuid="0265f9a2-0ccd-4b9f-a427-63416f9259a8"/>
+				<textFieldExpression><![CDATA[$F{Genero}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="32" height="30" uuid="2fb45d4a-1947-438b-8fc0-54abd1a9c967"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="43" splitType="Stretch">
+			<textField>
+				<reportElement x="410" y="10" width="70" height="30" uuid="1865603e-0869-4ee6-8eb0-1de86e530801"/>
+				<textFieldExpression><![CDATA["Pagina "+ $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="10" width="80" height="30" uuid="e64207ed-4a4b-4888-8b53-0fbfb55dfed9"/>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-18" y="2" width="593" height="1" uuid="217396bb-f2d2-49e3-ba51-349a6e1efba1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="5" width="224" height="24" uuid="b0b9c395-47ff-405b-9fba-6cc55545d4bc"/>
+				<textElement>
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Numero total de hombres:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="40" width="214" height="30" uuid="23e4e3de-bb87-4427-a7f8-3a46cc969b3e"/>
+				<textElement>
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Numero total de mujeres:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="240" y="10" width="140" height="24" uuid="1872a75f-2fe3-48de-bd6c-b2b41ac6cd58"/>
+				<textFieldExpression><![CDATA[$V{Variable_Hombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="45" width="140" height="20" uuid="d686dc5e-7cf5-4edb-86ea-7c53b12895b9"/>
+				<textFieldExpression><![CDATA[$V{Variable_Mujeres}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-20" y="5" width="595" height="1" uuid="c9dd181f-8007-4748-b059-2a5de2064f9e"/>
+			</line>
+			<line>
+				<reportElement x="-20" y="70" width="594" height="1" uuid="cc2bf4e7-3fe9-4348-8691-7acc0011ec81"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
